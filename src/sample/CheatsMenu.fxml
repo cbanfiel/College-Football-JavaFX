@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CheatsMenu">
+   <children>
+      <CheckBox fx:id="payRecruits" layoutX="250.0" layoutY="94.0" mnemonicParsing="false" text="Pay Recruits">
+         <font>
+            <Font name="Eras Light ITC" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="strippers" layoutX="250.0" layoutY="130.0" mnemonicParsing="false" text="Hire Strippers for Recruits">
+         <font>
+            <Font name="Eras Light ITC" size="12.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="144.0" layoutY="14.0" text="Cheat At Your Own Risk">
+         <font>
+            <Font name="Eras Light ITC" size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="265.0" layoutY="243.0" mnemonicParsing="false" onAction="#applyChanges" text="Apply Changes">
+         <font>
+            <Font name="Eras Light ITC" size="12.0" />
+         </font>
+      </Button>
+      <CheckBox fx:id="drugs" layoutX="250.0" layoutY="173.0" mnemonicParsing="false" text="Give Players P.E.D's">
+         <font>
+            <Font name="Eras Light ITC" size="12.0" />
+         </font>
+      </CheckBox>
+      <Button layoutX="262.0" layoutY="319.0" mnemonicParsing="false" onAction="#clicked1" text="back">
+         <font>
+            <Font name="Eras Light ITC" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

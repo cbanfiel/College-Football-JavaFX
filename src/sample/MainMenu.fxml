@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Menu">
+   <children>
+      <ImageView fitHeight="719.0" fitWidth="1464.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/college-football-top-25-010819-sn-ftr_67v4f4p2p9x21uh3zkx7oadzl.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="340.0" layoutY="161.0" opacity="0.92" style="-fx-background-color: white;">
+         <children>
+            <Label alignment="CENTER" layoutX="53.0" layoutY="14.0" stylesheets="@styles.css" text="NCAA FOOTBALL 19" textAlignment="CENTER">
+               <font>
+                  <Font name="Eras Light ITC" size="53.0" />
+               </font>
+            </Label>
+            <Button layoutY="78.0" mnemonicParsing="false" onAction="#clicked3" prefHeight="26.0" prefWidth="600.0" stylesheets="@styles.css" text="View Teams">
+               <font>
+                  <Font name="Eras Light ITC" size="36.0" />
+               </font>
+            </Button>
+            <Button layoutY="161.0" mnemonicParsing="false" onAction="#loadDynastyMode" prefHeight="26.0" prefWidth="600.0" stylesheets="@styles.css" text="Dynasty">
+               <font>
+                  <Font name="Eras Light ITC" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="createPlayerButton" layoutY="246.0" mnemonicParsing="false" onAction="#clicked4" prefHeight="26.0" prefWidth="600.0" stylesheets="@styles.css" text="Create A Player">
+               <font>
+                  <Font name="Eras Light ITC" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="createTeamButton" layoutY="331.0" mnemonicParsing="false" onAction="#clicked5" prefHeight="26.0" prefWidth="600.0" stylesheets="@styles.css" text="Create A Team">
+               <font>
+                  <Font name="Eras Light ITC" size="36.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Button fx:id="closeButton" layoutX="1080.0" layoutY="653.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="200.0" stylesheets="@styles.css" text="Exit">
+         <font>
+            <Font name="Eras Light ITC" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="createTeamButton1" layoutX="340.0" layoutY="571.0" mnemonicParsing="false" onAction="#startPlayGame" prefHeight="26.0" prefWidth="600.0" stylesheets="@styles.css" text="Play Game">
+         <font>
+            <Font name="Eras Light ITC" size="36.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

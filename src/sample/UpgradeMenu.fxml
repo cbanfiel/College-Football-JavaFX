@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UpgradeMenu">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="1280.0" style="-fx-background-color: #B5B5B5;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="454.0" layoutY="31.0" text="Available Upgrades">
+               <font>
+                  <Font name="Eras Light ITC" size="48.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="496.0" layoutY="103.0" text="Note: Upgades only last for one season/offseason">
+               <font>
+                  <Font name="Eras Light ITC" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="availableMoney" alignment="CENTER" contentDisplay="TOP" layoutX="88.0" layoutY="153.0" text="Available Money:">
+               <font>
+                  <Font name="Eras Light ITC" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="teamName" contentDisplay="TOP" layoutX="750.0" layoutY="153.0" prefHeight="28.0" prefWidth="500.0" text="Team Name">
+               <font>
+                  <Font name="Eras Light ITC" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button fx:id="upgradeRecruiting" layoutX="77.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleUpgradeRecruiting" text="Upgrade Recruiting">
+         <font>
+            <Font name="Eras Light ITC" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="upgradeTraining" layoutX="81.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleUpgradeTraining" text="Upgrade Training">
+         <font>
+            <Font name="Eras Light ITC" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeButton" layoutX="1086.0" layoutY="640.0" mnemonicParsing="false" onAction="#backToDynasty" text="Back To Dynasty">
+         <font>
+            <Font name="Eras Light ITC" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

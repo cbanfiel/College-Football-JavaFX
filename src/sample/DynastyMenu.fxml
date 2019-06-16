@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="CENTER" prefHeight="720.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DynastyController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <TabPane stylesheets="@styles.css" tabMinWidth="120.0">
+         <tabs>
+            <Tab closable="false" text="Main View">
+               <content>
+                  <AnchorPane fx:id="anchorPane" prefHeight="720.0" prefWidth="1280.0" stylesheets="@styles.css">
+                     <children>
+                        <Label layoutX="227.0" layoutY="6.0" stylesheets="@styles.css" text="DYNASTY MODE">
+                           <font>
+                              <Font name="Eras Light ITC" size="36.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="dynastyButton" layoutX="623.0" layoutY="74.0" mnemonicParsing="false" onAction="#simWeek" style="-fx-background-color: #A8A7A7;" stylesheets="@styles.css" text="Sim To Next Week">
+      </Button>
+                        <ListView fx:id="seasonTeamsListView" layoutX="431.0" layoutY="107.0" onKeyPressed="#handleClickListView" onMouseClicked="#handleClickListView" prefHeight="200.0" prefWidth="254.0" stylesheets="@styles.css" />
+                        <ListView fx:id="teamRosterListView" layoutX="953.0" layoutY="85.0" onKeyPressed="#handleClickPlayer" onMouseClicked="#handleClickPlayer" prefHeight="360.0" prefWidth="277.0" stylesheets="@styles.css">
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#handleRedshirt" text="Redshirt Player" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleUpgrade" text="Upgrade Player (+1)" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </ListView>
+                        <Label fx:id="teamInfoLabel" layoutX="605.0" layoutY="4.0" prefHeight="42.0" prefWidth="580.0" stylesheets="@styles.css" text="Label">
+                           <font>
+                              <Font name="Eras Light ITC" size="36.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="previousGamesListView" layoutX="438.0" layoutY="346.0" prefHeight="339.0" prefWidth="254.0" stylesheets="@styles.css" />
+                        <ListView fx:id="top25ListView" layoutX="14.0" layoutY="73.0" onKeyPressed="#handleTop25ClickListView" onMouseClicked="#handleTop25ClickListView" prefHeight="610.0" prefWidth="400.0" stylesheets="@styles.css" />
+                        <Label layoutX="153.0" layoutY="51.0" styleClass="styles.css" stylesheets="@styles.css" text="TOP 25 RANKINGS">
+      </Label>
+                        <Label layoutX="670.0" layoutY="331.0" stylesheets="@styles.css" text="SCHEDULE">
+                           <font>
+                              <Font name="Eras Light ITC" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1055.0" layoutY="65.0" text="TEAM ROSTER">
+      </Label>
+                        <Label fx:id="yearLabel" layoutX="39.0" layoutY="20.0" text="Label">
+                           <font>
+                              <Font name="Eras Light ITC" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="playerInfoTextArea" editable="false" layoutX="953.0" layoutY="461.0" prefHeight="222.0" prefWidth="278.0" stylesheets="@styles.css" />
+                        <TextArea fx:id="teamHistoryTextArea" editable="false" layoutX="716.0" layoutY="346.0" prefHeight="339.0" prefWidth="214.0" stylesheets="@styles.css" />
+                        <Button fx:id="dynastyButton1" layoutX="780.0" layoutY="74.0" mnemonicParsing="false" onAction="#simToEnd" style="-fx-background-color: #A8A7A7;" stylesheets="@styles.css" text="Sim To End Of Season">
+      </Button>
+                        <Button fx:id="dynastyButton2" layoutX="460.0" layoutY="74.0" mnemonicParsing="false" onAction="#backToMenu" style="-fx-background-color: #A8A7A7;" stylesheets="@styles.css" text="Back To Main Menu">
+      </Button>
+                        <ImageView fx:id="teamLogo" fitHeight="60.0" fitWidth="60.0" layoutX="544.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="playerFace" fitHeight="60.0" fitWidth="60.0" layoutX="1171.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true" />
+                        <ChoiceBox fx:id="teamFocus" layoutX="431.0" layoutY="316.0" prefWidth="150.0" />
+                        <Button fx:id="dynastyButton3" layoutX="789.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleChangeFocus" style="-fx-background-color: #A8A7A7;" stylesheets="@styles.css" text="Change Focus" />
+                        <Button fx:id="dynastyButton11" layoutX="701.0" layoutY="224.0" mnemonicParsing="false" onAction="#sim20years" style="-fx-background-color: #A8A7A7;" stylesheets="@styles.css" text="Simulate 20 Years" />
+                        <ImageView fitHeight="70.0" layoutX="1172.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/trophy.gif" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="titleLabel" layoutX="1237.0" layoutY="24.0" prefHeight="14.0" prefWidth="28.0" text="0">
+                           <font>
+                              <Font name="Eras Light ITC" size="30.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="payRecruits" layoutX="769.0" layoutY="153.0" mnemonicParsing="false" text="Pay Recruits">
+                           <font>
+                              <Font name="Eras Light ITC" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="strippers" layoutX="769.0" layoutY="189.0" mnemonicParsing="false" text="Hire Strippers for Recruits">
+                           <font>
+                              <Font name="Eras Light ITC" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="drugs" layoutX="765.0" layoutY="122.0" mnemonicParsing="false" text="Give Players P.E.D's">
+                           <font>
+                              <Font name="Eras Light ITC" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <Label fx:id="underSanctions" layoutX="598.0" layoutY="308.0" prefHeight="14.0" prefWidth="175.0" stylesheets="@styles.css">
+                           <font>
+                              <Font name="Eras Light ITC" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="827.0" layoutY="265.0" mnemonicParsing="false" onAction="#handleExpectationsMenu" text="Team Expectations" />
+                        <Label fx:id="prestigeLabel" layoutX="698.0" layoutY="45.0" prefHeight="28.0" prefWidth="84.0" stylesheets="@styles.css" text="Prestige:">
+                           <font>
+                              <Font name="Eras Light ITC" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="financesLabel" layoutX="823.0" layoutY="45.0" prefHeight="28.0" prefWidth="139.0" stylesheets="@styles.css" text="Finances:200000">
+                           <font>
+                              <Font name="Eras Light ITC" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="830.0" layoutY="225.0" mnemonicParsing="false" onAction="#handlePrestigeUpgrade" text="Upgrade Prestige" />
+                        <Button layoutX="732.0" layoutY="265.0" mnemonicParsing="false" onAction="#handleUpgradesMenu" text="Upgrades" />
+                        <Label fx:id="strengthOfSchedule" layoutX="622.0" layoutY="315.0" stylesheets="@styles.css" text="STRENGTH OF SCHEDULE: 99">
+                           <font>
+                              <Font name="Eras Light ITC" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab closable="false" onSelectionChanged="#handleClickScheduleView" text="Schedule">
+              <content>
+                  <BorderPane GridPane.columnIndex="1">
+                     <center>
+                        <Pane>
+                           <children>
+                              <GridPane layoutY="1.6000022888183594" prefHeight="720.0" prefWidth="1280.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="632.5333862304688" minWidth="0.0" prefWidth="138.66665039062502" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1174.3999786376953" minWidth="10.0" prefWidth="886.1333496093752" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1630.9333251953126" minWidth="10.0" prefWidth="316.5333251953125" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Pane layoutX="994.0" layoutY="472.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="11" />
+                                    <Pane layoutX="128.0" layoutY="472.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                    <Pane layoutX="10.0" layoutY="472.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                    <Pane layoutX="994.0" layoutY="267.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="7" />
+                                    <Pane layoutX="10.0" layoutY="575.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                    <Pane layoutX="128.0" layoutY="575.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                                    <Pane layoutX="128.0" layoutY="575.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="13" />
+                                    <Pane layoutX="10.0" layoutY="678.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                    <Pane layoutX="10.0" layoutY="267.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Pane layoutX="128.0" layoutY="267.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                    <Pane layoutX="128.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <Pane layoutX="128.0" layoutY="369.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                    <Pane layoutX="10.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="9" />
+                                    <Pane layoutX="128.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Pane layoutX="128.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="3" />
+                                    <Pane layoutX="10.0" layoutY="164.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Pane layoutX="128.0" layoutY="164.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <Pane layoutX="10.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="5" />
+                                    <Pane layoutX="128.0" layoutY="678.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                                    <Pane layoutX="10.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="1" />
+                                    <ImageView fx:id="scheduleTeam1" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" />
+                                    <ImageView fx:id="scheduleTeam2" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    <ImageView fx:id="scheduleTeam3" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                    <ImageView fx:id="scheduleTeam4" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                    <ImageView fx:id="scheduleTeam5" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                    <ImageView fx:id="scheduleTeam6" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                    <ImageView fx:id="scheduleTeam7" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                                    <ImageView fx:id="scheduleTeam8" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                                    <ImageView fx:id="scheduleTeam9" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                                    <ImageView fx:id="scheduleTeam10" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                                    <ImageView fx:id="scheduleTeam11" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                                    <ImageView fx:id="scheduleTeam12" fitHeight="55.0" fitWidth="55.0" layoutX="10.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+                                    <Label fx:id="week1" text="WEEK #" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week2" layoutX="116.0" layoutY="15.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week3" layoutX="116.0" layoutY="15.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week4" layoutX="116.0" layoutY="15.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week5" layoutX="116.0" layoutY="15.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week6" layoutX="116.0" layoutY="220.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week7" layoutX="116.0" layoutY="272.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week8" layoutX="116.0" layoutY="323.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week9" layoutX="116.0" layoutY="374.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week10" layoutX="116.0" layoutY="426.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week11" layoutX="116.0" layoutY="477.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="week12" layoutX="116.0" layoutY="528.0" text="WEEK #" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#simWeek" text="Simluate To Next Week" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="24.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </Pane>
+                     </center>
+                     <top>
+                        <FlowPane alignment="CENTER" style="-fx-background-color: #e3e5e8;">
+                           <children>
+                              <ImageView fx:id="scheduleTeamLogo" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="teamInfoLabel2" text="Team Name">
+                                 <font>
+                                    <Font name="Eras Light ITC" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                     </top>
+                  </BorderPane>
+              </content>
+            </Tab>
+            <Tab closable="false" onSelectionChanged="#handleClickRosterTab" text="Roster">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <SplitPane dividerPositions="0.34663536776212833" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <items>
+                              <GridPane>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0000244140625" minWidth="10.0" prefWidth="138.13332824707032" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="333.8666717529297" minWidth="10.0" prefWidth="333.8666717529297" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="47.53332366943359" minHeight="10.0" prefHeight="47.53332366943359" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="57.60001373291016" minHeight="0.0" prefHeight="52.79998779296875" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="128.4" minHeight="10.0" prefHeight="59.20001220703125" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fx:id="rosterTabPlayerImage" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <image>
+                                          <Image url="@img/stuff/nophoto.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="rosterTabPlayerName" text="QB #18 Tate Martell" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="rosterTabTeamName" text="Miami Hurricanes" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="rosterTabTeamLogo" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <image>
+                                          <Image url="@img/miami.gif" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </GridPane>
+                              <GridPane>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="393.199951171875" minWidth="10.0" prefWidth="129.93328857421875" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="701.6667114257813" minWidth="10.0" prefWidth="701.6667114257813" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="29.200004959106444" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="44.26665725708008" minHeight="10.0" prefHeight="44.26665725708008" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="42.999994659423834" minHeight="10.0" prefHeight="35.53334274291993" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label fx:id="rosterTabHeight" text="HEIGHT">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="rosterTabClass" layoutX="10.0" layoutY="14.0" text="CLASS" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="rosterTabWeight" layoutX="10.0" layoutY="14.0" text="WEIGHT" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="rosterTabOverall" layoutX="10.0" layoutY="74.0" text="OVERALL" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Eras Light ITC" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="statsTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647" />
+                                 </children>
+                              </GridPane>
+                          </items>
+                        </SplitPane>
+                     </top>
+                     <center>
+                        <TableView fx:id="rosterTableView" onMouseClicked="#handleTableSelection" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="positionColumn" prefWidth="75.0" text="POS" />
+                            <TableColumn fx:id="nameColumn" prefWidth="150.0" text="NAME" />
+                              <TableColumn fx:id="ovrColumn" prefWidth="75.0" text="OVR" />
+                              <TableColumn fx:id="passAccuracyColumn" prefWidth="75.0" text="PACC" />
+                              <TableColumn fx:id="passStrengthColumn" prefWidth="75.0" text="PSTR" />
+                              <TableColumn fx:id="speedColumn" prefWidth="75.0" text="SPD" />
+                              <TableColumn fx:id="strengthColumn" prefWidth="75.0" text="STR" />
+                              <TableColumn fx:id="defenseColumn" prefWidth="75.0" text="DEF" />
+                              <TableColumn fx:id="blockColumn" prefWidth="75.0" text="BLK" />
+                              <TableColumn fx:id="carryColumn" prefWidth="75.0" text="CAR" />
+                              <TableColumn fx:id="recieveColumn" prefWidth="75.0" text="REC" />
+                              <TableColumn fx:id="kickPowerColumn" prefWidth="75.0" text="KPOW" />
+                              <TableColumn fx:id="kickAccuracyColumn" prefWidth="75.0" text="KACC" />
+                          </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab fx:id="espnTab" closable="false">
+              <content>
+                  <BorderPane prefHeight="720.0" prefWidth="1280.0">
+                     <center>
+                        <GridPane>
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="630.3999633789062" minWidth="10.0" prefWidth="188.19999084472659" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="630.3999633789062" minWidth="10.0" prefWidth="189.80000915527341" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="994.1333312988281" minWidth="10.0" prefWidth="936.4666625976563" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Pane layoutX="10.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="3" />
+                              <Pane layoutX="187.0" layoutY="597.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Pane layoutX="10.0" layoutY="597.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Pane layoutX="365.0" layoutY="362.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="5" />
+                              <Pane layoutX="187.0" layoutY="362.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Pane layoutX="10.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Pane layoutX="187.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Pane layoutX="10.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e3e5e8;" GridPane.rowIndex="1" />
+                              <ImageView fx:id="newsfeed1image1" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" />
+                              <ImageView fx:id="newsfeed1image2" fitHeight="110.0" fitWidth="110.0" layoutX="44.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                              <Label fx:id="newsfeed1" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Eras Light ITC" size="24.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="newsfeedNumber1Image" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label fx:id="newsfeedNumber1" layoutX="771.0" layoutY="55.0" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Eras Light ITC" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="newsfeedSelectedTeamLabel" layoutX="770.0" layoutY="154.0" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Eras Light ITC" size="24.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="newsfeedSelectedTeamImage" fitHeight="110.0" fitWidth="110.0" layoutX="221.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <ImageView fx:id="newsfeedSelectedTeamOppImage" fitHeight="110.0" fitWidth="110.0" layoutX="44.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                     </center>
+                     <top>
+                        <Pane prefHeight="60.0" prefWidth="1280.0" style="-fx-background-color: #2B2C2D;" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/espn%20menu/espn.gif" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </top>
+                  </BorderPane>
+              </content>
+            </Tab>
+            <Tab closable="false" text="Global Stats">
+              <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TableView fx:id="globalStatsTable" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </GridPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</GridPane>

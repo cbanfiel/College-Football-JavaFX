@@ -1,0 +1,50 @@
+PASS ACC = cmpletion %
+PASS STR = big plays =  more yardage & slightly more yds per play
+SPEED = more yds off the bat &  more big runs / big plays make less yds
+STR = more yds after initial hit / less big plays&lass yds per play(DL)
+DEF = less big plays & less yds per play
+BLK = more big plays & more yds per play
+CARRY =  less fumbles
+REC = more yds after catch / more intercepions
+KICKPOW = determines  how far can kick
+KICKACC = percentage of makes
+
+PASS
+1. Pass Rush = DL(str,spd,def) OL(str,blk)
+	a. sack (end of play loss yards)		b.rushed (pass acc down big plays down, yardage down)	c.nothing 	d.all day (pass acc up big plays up)
+
+NOTES: if oline wins
+
+
+2. Broken Coverage(Big Play) Check.. WR(speed) DB(speed def)
+	a. Broken Coverage(Big Play) b. Not Broken (normal)
+	
+3. Throw = QB(accuracy)
+	a. complete		b.incomplete (check interception)
+	
+IF incomplete
+4. Check interception
+DB(rec, def)
+ 
+IF complete
+4. Get Yardage
+Reciever(speed,rec) vs TOTAL DEF(def)
+
+RUN
+1. Run Rush = DL(str speed def) OL(str blk)
+	a. loss of yards 	b. no hole(big play % down, normal ydg down)	c.normal gain	d. huge hole(big play % up, normal yardage up)
+
+2. check broken play(big play) rb(speed) ALL DEFENSE(def)
+	a. broken play(big play) 	b. not broken(normal)
+
+3. get initial yardage rb(speed)
+
+4. get yardage after contact rb(str) all defense (def)
+	a.stopped on spot(nothing)	b. good push(yardage up a little)	c. break tackle(yardage up alot) 
+
+
+5. check fumble
+rb(carry)
+
+
+

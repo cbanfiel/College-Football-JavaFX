@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ExpectationsMenu">
+   <children>
+      <ListView fx:id="availableExpectations" layoutX="66.0" layoutY="239.0" onKeyPressed="#handleChangeExpectation" onMouseClicked="#handleChangeExpectation" prefHeight="235.0" prefWidth="400.0" />
+      <ListView fx:id="acceptedExpectations" layoutX="788.0" layoutY="249.0" prefHeight="238.0" prefWidth="400.0" />
+      <Button fx:id="AcceptExpectation" layoutX="576.0" layoutY="285.0" mnemonicParsing="false" onAction="#handleAcceptExpectation" text="Accept Expectation">
+         <font>
+            <Font name="Eras Light ITC" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="teamName" layoutX="556.0" layoutY="27.0" prefHeight="40.0" prefWidth="720.0" text="TeamName">
+         <font>
+            <Font name="Eras Light ITC" size="33.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="teamLogo" fitHeight="60.0" fitWidth="60.0" layoutX="477.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="expectationDialog" alignment="CENTER" layoutY="130.0" prefWidth="1280.0" text="ExpectationDialog">
+         <font>
+            <Font name="Eras Light ITC" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="closeButton" layoutX="577.0" layoutY="411.0" mnemonicParsing="false" onAction="#backToDynasty" text="Back To Dynasty">
+         <font>
+            <Font name="Eras Light ITC" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="moneyLeft" layoutX="508.0" layoutY="616.0" text="Current Money: 250000">
+         <font>
+            <Font name="Eras Light ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="145.0" layoutY="210.0" text="Available Expectations">
+         <font>
+            <Font name="Eras Light ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="884.0" layoutY="226.0" text="Accepted Expectations">
+         <font>
+            <Font name="Eras Light ITC" size="24.0" />
+         </font>
+      </Label>
+      <ListView fx:id="failedExpectations" layoutX="787.0" layoutY="571.0" prefHeight="119.0" prefWidth="400.0" />
+      <ListView fx:id="passedExpectations" layoutX="51.0" layoutY="549.0" prefHeight="119.0" prefWidth="400.0" />
+      <Label layoutX="157.0" layoutY="517.0" text="Passed Expectations">
+         <font>
+            <Font name="Eras Light ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="884.0" layoutY="535.0" text="Failed Expectations">
+         <font>
+            <Font name="Eras Light ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="moneyIncentive" layoutX="591.0" layoutY="178.0" text="Incentive">
+         <font>
+            <Font name="Eras Light ITC" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

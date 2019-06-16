@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BootUp">
+   <children>
+      <ImageView fx:id="image" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/college-football-top-25-010819-sn-ftr_67v4f4p2p9x21uh3zkx7oadzl.jpg" />
+         </image>
+      </ImageView>
+      <Pane opacity="0.85" prefHeight="70.0" prefWidth="1280.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="237.0" layoutY="3.0" prefHeight="70.0" prefWidth="1280.0" text="Chad Banfield's NCAA Football 19">
+               <font>
+                  <Font name="Eras Light ITC" size="58.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ProgressIndicator layoutX="539.0" layoutY="276.0" prefHeight="200.0" prefWidth="800.0" style="-fx-progress-color: red; -fx-min-height: 200; -fx-min-width: 200;" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<TabPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.InGameMenuController">
+   <tabs>
+      <Tab closable="false" text="Field View">
+         <content>
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
+               <top>
+                  <SplitPane dividerPositions="0.5">
+                     <items>
+                        <FlowPane alignment="CENTER" hgap="10.0" prefHeight="0.0" prefWidth="636.0" style="-fx-background-color: #e3e5e8;">
+                           <children>
+                              <ImageView fx:id="isHomePossesionImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stuff/football.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="homeLogo" fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/michigan.gif" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="homeNameLabel" prefHeight="0.0" text="MICHIGAN: 24">
+                                 <font>
+                                    <Font name="Eras Light ITC" size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER" hgap="10.0" prefHeight="0.0" prefWidth="636.0" style="-fx-background-color: #e3e5e8;">
+                           <children>
+                              <ImageView fx:id="isAwayPossesionImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stuff/football.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="awayLogo" fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/alabama.gif" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="awayNameLabel" text="ALABAMA: 45">
+                                 <font>
+                                    <Font name="Eras Light ITC" size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                     </items>
+                  </SplitPane>
+               </top>
+               <center>
+                  <GridPane prefWidth="1280.0" BorderPane.alignment="CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="72.60001220703126" minHeight="10.0" prefHeight="35.60000495910644" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="72.60001220703126" minHeight="10.0" prefHeight="28.399995040893558" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="526.4000000000001" minHeight="10.0" prefHeight="393.00001220703126" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="479.79997367858886" minHeight="0.0" prefHeight="96.9999877929688" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView fitHeight="443.0" fitWidth="750.0" layoutX="260.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stuff/stadium.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="fieldLogo" fitHeight="150.0" fitWidth="100.0" layoutX="588.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/michigan.gif" />
+                                 </image>
+                              </ImageView>
+                              <Line fx:id="lineOfScrimmageMarker" endY="302.800048828125" layoutX="560.0" layoutY="73.0" startY="-12.399986267089844" stroke="#0411ba" strokeWidth="5.0" />
+                              <Line fx:id="firstDownMarker" endY="302.800048828125" layoutX="648.0" layoutY="73.0" startY="-12.399986267089844" stroke="#fffb00" strokeWidth="5.0" />
+                              <ImageView fx:id="footballImage" fitHeight="30.0" fitWidth="30.0" layoutX="457.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stuff/football.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="quarterLabel" layoutX="96.0" layoutY="21.0" text="Quarter: 4">
+                                 <font>
+                                    <Font name="Eras Light ITC" size="24.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="playBookList" layoutX="28.0" layoutY="70.0" onMouseClicked="#handleSelectPlay" prefHeight="283.0" prefWidth="200.0" />
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="playByPlayLabel" text="Shea Patterson completes a pass to karan higdon for 8 yards" GridPane.halignment="CENTER">
+                           <font>
+                              <Font name="Eras Light ITC" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="gameData" layoutX="351.0" layoutY="7.0" text="Data" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Eras Light ITC" size="18.0" />
+                           </font>
+                        </Label>
+                        <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label fx:id="selectedPlayLabel" text="Selected Play: Speed Option">
+                                 <font>
+                                    <Font name="Eras Light ITC" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </GridPane>
+               </center>
+               <bottom>
+                  <FlowPane alignment="CENTER" hgap="20.0" prefHeight="102.0" prefWidth="1280.0" style="-fx-background-color: #2B2C2D;" vgap="20.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#simNextPlay" text="NEXT PLAY">
+                           <font>
+                              <Font name="Eras Light ITC" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="579.0" layoutY="40.0" mnemonicParsing="false" onAction="#simToNextQuarter" text="SIM TO NEXT QUARTER">
+                           <font>
+                              <Font name="Eras Light ITC" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="644.0" layoutY="40.0" mnemonicParsing="false" onAction="#simToEnd" text="SIM TO END">
+                           <font>
+                              <Font name="Eras Light ITC" size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </FlowPane>
+               </bottom>
+            </BorderPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Game Stats">
+         <content>
+            <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+              </items>
+            </SplitPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Game Summary">
+        <content>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextArea fx:id="gameSummary" editable="false" prefHeight="200.0" prefWidth="200.0" text="This is the game summary" wrapText="true">
+                     <font>
+                        <Font name="Eras Light ITC" size="36.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </GridPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
